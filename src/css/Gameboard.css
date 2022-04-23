@@ -1,0 +1,122 @@
+.game-board {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    overflow: hidden;
+}
+
+#board {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+
+    width: 350px;
+    height: 420px;
+}
+
+.row-b {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 5px;
+}
+
+.row-b.shake {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+}
+
+.tile {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: bold;
+    vertical-align: middle;
+    box-sizing: border-box;
+    color: #000;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.flip-card {
+    perspective: 1000px;
+  }
+  
+
+.flip-card-front.empty {
+    border: 2px solid #d3d6da;
+}
+
+.flip-card-front.selected {
+    border: 2px solid #878a8c;
+}
+
+.flip-card-back.correct {
+    background-color: #6aaa64;
+    color: white;
+    border: none;
+}
+
+.flip-card-back.present {
+    background-color: #c9b458;
+    color: white;
+    border: none;
+}
+
+.flip-card-back.absent {
+    background-color: #787c7e;
+    color: white;
+    border: none;
+}
+
+
+.flip-card-inner {  
+    width: 100%;
+    height: 100%;  
+    transition: transform 0.6s;
+    transform-style: preserve-3d;  
+}
+  
+.back .flip-card-inner {
+    transform: rotateX(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+  
+  .flip-card-back {
+    
+    transform: rotateX(180deg);
+  }
+
+  

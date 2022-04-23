@@ -1,0 +1,75 @@
+.App {
+  
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  height: 100vh;
+  margin: 0 auto;  
+}
+
+
+@media (min-width: 415px) {
+header {
+    padding: 0px 16px;
+}
+}
+header {
+    text-align: center;
+    padding: 5px;
+    color: black;
+}
+
+header .title {
+  font-family: 'nyt-karnakcondensed';
+  font-weight: 700;
+  font-size: 37px;
+  line-height: 100%;
+  letter-spacing: 0.01em;
+  text-align: center;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+#toast-container {
+  visibility: hidden;
+  position: fixed;
+  top: 60px;  
+  left: 50%;
+  text-align: center;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  
+  border-radius: 2px;
+  padding: 16px;
+  z-index: 1;
+  font-size: 17px;
+}
+
+#toast-container.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {top: 0; opacity: 0;} 
+  to {top: 60px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 60px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {top: 60px; opacity: 1;} 
+  to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {top: 60px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
